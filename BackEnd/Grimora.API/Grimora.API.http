@@ -1,0 +1,6 @@
+@Grimora.API_HostAddress = http://localhost:5219
+
+GET {{Grimora.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

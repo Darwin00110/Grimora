@@ -1,0 +1,122 @@
+/* ============================================================
+   PixelSprite — CSS Sprite System para o Mago Aprendiz e NPCs
+   Todos os sprites são construídos com CSS box-shadow (pixel art)
+   ============================================================ */
+
+/* ── Base do Sprite ── */
+.pixel-sprite {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  display: inline-block;
+  position: relative;
+}
+
+/* ── Mago Aprendiz ── */
+.sprite-mage {
+  width: 32px;
+  height: 48px;
+  position: relative;
+}
+
+/* Escala do sprite para exibição maior */
+.sprite-mage--sm  { transform: scale(2); transform-origin: bottom center; }
+.sprite-mage--md  { transform: scale(3); transform-origin: bottom center; }
+.sprite-mage--lg  { transform: scale(4); transform-origin: bottom center; }
+.sprite-mage--xl  { transform: scale(5); transform-origin: bottom center; }
+
+/* ── Estados do Personagem ── */
+.sprite-mage[data-state="idle"] .char-body {
+  animation: char-idle 2s ease-in-out infinite;
+}
+
+.sprite-mage[data-state="casting"] .char-body {
+  animation: char-idle 0.4s ease-in-out infinite;
+}
+.sprite-mage[data-state="casting"] .char-arm-right {
+  transform: rotate(-45deg) translateY(-4px);
+  animation: none;
+}
+
+.sprite-mage[data-state="success"] .char-body {
+  animation: bounce-in 0.5s ease-out forwards;
+}
+
+.sprite-mage[data-state="failure"] .char-body {
+  animation: shake 0.5s ease-in-out;
+}
+
+.sprite-mage[data-state="scorched"] .char-body {
+  animation: char-scorched 1.5s ease-in-out infinite;
+}
+
+.sprite-mage[data-state="walking"] .char-body {
+  animation: char-walk 0.4s steps(2) infinite;
+}
+
+@keyframes char-walk {
+  0%   { transform: translateY(0) scaleX(1); }
+  50%  { transform: translateY(-3px) scaleX(1.05); }
+  100% { transform: translateY(0) scaleX(1); }
+}
+
+/* ── NPC Sprites (CSS Art) ── */
+.sprite-npc {
+  width: 32px;
+  height: 48px;
+  position: relative;
+  image-rendering: pixelated;
+}
+
+.sprite-npc--sm  { transform: scale(2); transform-origin: bottom center; }
+.sprite-npc--md  { transform: scale(3); transform-origin: bottom center; }
+.sprite-npc--lg  { transform: scale(4); transform-origin: bottom center; }
+
+/* ── Efeitos Mágicos ── */
+.magic-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 0;
+  image-rendering: pixelated;
+}
+
+.magic-effect-cast {
+  animation: spell-fly 0.8s ease-out forwards;
+}
+
+.magic-effect-explosion {
+  animation: magic-explosion 0.6s ease-out forwards;
+}
+
+.magic-stars {
+  animation: star-burst 1s ease-out forwards;
+}
+
+/* ── Contêiner de Cena ── */
+.scene-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding-bottom: 20px;
+  min-height: 200px;
+}
+
+.scene-character-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.character-shadow {
+  width: 60%;
+  height: 8px;
+  background: rgba(0,0,0,0.5);
+  border-radius: 50%;
+  filter: blur(4px);
+  position: absolute;
+  bottom: -4px;
+}

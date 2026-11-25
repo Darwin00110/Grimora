@@ -1,0 +1,190 @@
+/* ============================================================
+   PRESENTATION — Global Styles (CSS Variables & Reset)
+   Design System: Pixel Art Medieval Fantasy
+   ============================================================ */
+
+:root {
+  /* ── Paleta Principal ── */
+  --color-bg-dark:      #0d0a1e;
+  --color-bg-mid:       #1a1035;
+  --color-bg-panel:     #231845;
+  --color-bg-card:      #2d2060;
+
+  --color-primary:      #7B2FBE;
+  --color-primary-light:#9B4FDE;
+  --color-primary-dark: #5B1F8E;
+
+  --color-accent:       #FFD700;
+  --color-accent-light: #FFE55C;
+  --color-accent-dark:  #CC9900;
+
+  --color-success:      #00E676;
+  --color-success-dark: #00B248;
+  --color-danger:       #FF5252;
+  --color-danger-dark:  #CC0000;
+  --color-warning:      #FF9800;
+
+  --color-text-primary: #F0E6FF;
+  --color-text-secondary:#A98FCC;
+  --color-text-muted:   #6B5A8A;
+
+  /* ── Bordas ── */
+  --border-pixel: 2px solid var(--color-primary);
+  --border-accent: 2px solid var(--color-accent);
+  --border-panel: 3px solid #3D2A6A;
+
+  /* ── Sombras ── */
+  --shadow-glow-purple: 0 0 20px rgba(123,47,190,0.6), 0 0 40px rgba(123,47,190,0.3);
+  --shadow-glow-gold:   0 0 20px rgba(255,215,0,0.5), 0 0 40px rgba(255,215,0,0.2);
+  --shadow-glow-green:  0 0 20px rgba(0,230,118,0.5);
+  --shadow-glow-red:    0 0 20px rgba(255,82,82,0.5);
+  --shadow-panel:       4px 4px 0px #000, inset 0 0 30px rgba(0,0,0,0.5);
+
+  /* ── Tipografia Pixel ── */
+  --font-pixel: 'Press Start 2P', 'Courier New', monospace;
+  --font-body:  'VT323', 'Courier New', monospace;
+  --font-ui:    system-ui, -apple-system, sans-serif;
+
+  /* ── Tamanhos ── */
+  --sprite-base: 48px;
+  --sprite-lg:   96px;
+  --panel-radius: 4px;
+
+  /* ── Transições ── */
+  --transition-fast: 0.15s ease;
+  --transition-mid:  0.3s ease;
+  --transition-slow: 0.6s ease;
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-primary);
+  font-family: var(--font-ui);
+  image-rendering: auto;
+}
+
+/* Preservar pixel art em sprites */
+.pixel-art {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* ── Scrollbar Mágica ── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-light);
+}
+
+/* ── Utilitários ── */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+}
+
+.glow-purple { box-shadow: var(--shadow-glow-purple); }
+.glow-gold   { box-shadow: var(--shadow-glow-gold); }
+.glow-green  { box-shadow: var(--shadow-glow-green); }
+.glow-red    { box-shadow: var(--shadow-glow-red); }
+
+/* ── Animações Globais ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: var(--shadow-glow-purple); }
+  50%       { box-shadow: 0 0 40px rgba(123,47,190,0.9), 0 0 80px rgba(123,47,190,0.5); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes bounce-in {
+  0%   { transform: scale(0) rotate(-10deg); opacity: 0; }
+  60%  { transform: scale(1.2) rotate(5deg);  opacity: 1; }
+  100% { transform: scale(1) rotate(0deg);    opacity: 1; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-8px) rotate(-3deg); }
+  40%       { transform: translateX(8px)  rotate(3deg); }
+  60%       { transform: translateX(-6px) rotate(-2deg); }
+  80%       { transform: translateX(6px)  rotate(2deg); }
+}
+
+@keyframes star-burst {
+  0%   { transform: scale(0) rotate(0deg);   opacity: 1; }
+  50%  { transform: scale(1.5) rotate(180deg); opacity: 1; }
+  100% { transform: scale(0.5) rotate(360deg); opacity: 0; }
+}
+
+@keyframes spell-fly {
+  0%   { transform: translateX(0) scale(1);  opacity: 1; }
+  100% { transform: translateX(200px) scale(0); opacity: 0; }
+}
+
+@keyframes char-idle {
+  0%, 100% { transform: translateY(0px) scaleX(1); }
+  25%       { transform: translateY(-2px) scaleX(1.02); }
+  75%       { transform: translateY(2px) scaleX(0.98); }
+}
+
+@keyframes char-scorched {
+  0%, 100% { filter: brightness(0.8) sepia(0.8); transform: rotate(-3deg); }
+  50%       { filter: brightness(0.6) sepia(1) hue-rotate(10deg); transform: rotate(3deg); }
+}
+
+@keyframes magic-explosion {
+  0%   { transform: scale(0);   opacity: 1; }
+  50%  { transform: scale(2.5); opacity: 0.8; }
+  100% { transform: scale(4);   opacity: 0; }
+}
+
+@keyframes page-enter {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes stars-twinkle {
+  0%, 100% { opacity: 0.3; }
+  50%       { opacity: 1; }
+}
+
+.animate-float          { animation: float 3s ease-in-out infinite; }
+.animate-pulse-glow     { animation: pulse-glow 2s ease-in-out infinite; }
+.animate-bounce-in      { animation: bounce-in 0.6s cubic-bezier(0.68,-0.55,0.265,1.55) forwards; }
+.animate-shake          { animation: shake 0.5s ease-in-out; }
+.animate-page-enter     { animation: page-enter 0.4s ease-out forwards; }
+.animate-idle           { animation: char-idle 2s ease-in-out infinite; }
+.animate-scorched       { animation: char-scorched 1.5s ease-in-out infinite; }

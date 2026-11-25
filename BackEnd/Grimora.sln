@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grimora.Application", "Grimora.Application\Grimora.Application.csproj", "{8FAE0F97-6A14-4A49-B635-D8FB00C85735}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grimora.Domain", "Grimora.Domain\Grimora.Domain.csproj", "{2959FB0C-72C9-442F-8F35-E30CA710C24C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grimora.Infrastructure", "Grimora.Infrastructure\Grimora.Infrastructure.csproj", "{067D10A1-BED9-40FF-AC1C-4B2DE630AB9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grimora.Tests", "Grimora.Tests\Grimora.Tests.csproj", "{31C60001-3ADC-4955-9D1D-6A0ED6A4D05C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grimora.API", "Grimora.API\Grimora.API.csproj", "{76395AF1-462E-433E-9047-13838EED321C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8FAE0F97-6A14-4A49-B635-D8FB00C85735}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FAE0F97-6A14-4A49-B635-D8FB00C85735}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FAE0F97-6A14-4A49-B635-D8FB00C85735}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FAE0F97-6A14-4A49-B635-D8FB00C85735}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2959FB0C-72C9-442F-8F35-E30CA710C24C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2959FB0C-72C9-442F-8F35-E30CA710C24C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2959FB0C-72C9-442F-8F35-E30CA710C24C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2959FB0C-72C9-442F-8F35-E30CA710C24C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{067D10A1-BED9-40FF-AC1C-4B2DE630AB9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{067D10A1-BED9-40FF-AC1C-4B2DE630AB9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{067D10A1-BED9-40FF-AC1C-4B2DE630AB9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{067D10A1-BED9-40FF-AC1C-4B2DE630AB9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31C60001-3ADC-4955-9D1D-6A0ED6A4D05C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31C60001-3ADC-4955-9D1D-6A0ED6A4D05C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31C60001-3ADC-4955-9D1D-6A0ED6A4D05C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31C60001-3ADC-4955-9D1D-6A0ED6A4D05C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76395AF1-462E-433E-9047-13838EED321C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76395AF1-462E-433E-9047-13838EED321C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76395AF1-462E-433E-9047-13838EED321C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76395AF1-462E-433E-9047-13838EED321C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,288 @@
+/* ============================================================
+   Panel & UI Components — Grimora Design System
+   ============================================================ */
+
+/* ── Pixel Panel (caixa com bordas estilo RPG) ── */
+.pixel-panel {
+  background: var(--color-bg-panel);
+  border: 3px solid var(--color-primary);
+  border-radius: var(--panel-radius);
+  position: relative;
+  overflow: hidden;
+}
+
+.pixel-panel::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border: 1px solid rgba(123,47,190,0.3);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.pixel-panel--gold {
+  border-color: var(--color-accent);
+}
+
+.pixel-panel--success {
+  border-color: var(--color-success);
+  box-shadow: var(--shadow-glow-green);
+}
+
+.pixel-panel--danger {
+  border-color: var(--color-danger);
+  box-shadow: var(--shadow-glow-red);
+}
+
+/* ── Dialogue Box (caixa de diálogo RPG) ── */
+.dialogue-box {
+  background: rgba(13,10,30,0.95);
+  border: 3px solid var(--color-accent);
+  border-radius: var(--panel-radius);
+  padding: 20px 24px;
+  position: relative;
+  box-shadow: var(--shadow-panel), var(--shadow-glow-gold);
+}
+
+.dialogue-box::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border: 1px solid rgba(255,215,0,0.2);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.dialogue-speaker {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: var(--color-accent);
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(255,215,0,0.5);
+  letter-spacing: 1px;
+}
+
+.dialogue-text {
+  font-family: var(--font-body);
+  font-size: 20px;
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  min-height: 60px;
+}
+
+.dialogue-advance {
+  position: absolute;
+  bottom: 12px;
+  right: 16px;
+  animation: float 1s ease-in-out infinite;
+  color: var(--color-accent);
+  font-size: 12px;
+  font-family: var(--font-pixel);
+  cursor: pointer;
+}
+
+/* ── Pixel Button ── */
+.pixel-btn {
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: all var(--transition-fast);
+  position: relative;
+  text-transform: uppercase;
+  image-rendering: pixelated;
+}
+
+.pixel-btn::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 2px;
+  right: 2px;
+  height: 4px;
+  border-radius: 0 0 2px 2px;
+  transition: all var(--transition-fast);
+}
+
+.pixel-btn:hover { transform: translateY(-1px); }
+.pixel-btn:active { transform: translateY(2px); }
+.pixel-btn:active::after { height: 1px; bottom: -1px; }
+
+.pixel-btn--primary {
+  background: var(--color-primary);
+  color: white;
+  box-shadow: 0 4px 0 var(--color-primary-dark), var(--shadow-glow-purple);
+}
+.pixel-btn--primary::after { background: var(--color-primary-dark); }
+.pixel-btn--primary:hover { background: var(--color-primary-light); }
+
+.pixel-btn--accent {
+  background: var(--color-accent);
+  color: #000;
+  box-shadow: 0 4px 0 var(--color-accent-dark), var(--shadow-glow-gold);
+}
+.pixel-btn--accent::after { background: var(--color-accent-dark); }
+.pixel-btn--accent:hover { background: var(--color-accent-light); }
+
+.pixel-btn--success {
+  background: var(--color-success);
+  color: #000;
+  box-shadow: 0 4px 0 var(--color-success-dark), var(--shadow-glow-green);
+}
+
+.pixel-btn--danger {
+  background: var(--color-danger);
+  color: white;
+  box-shadow: 0 4px 0 var(--color-danger-dark), var(--shadow-glow-red);
+}
+
+.pixel-btn--ghost {
+  background: transparent;
+  color: var(--color-text-secondary);
+  border: 2px solid var(--color-text-muted);
+  box-shadow: none;
+}
+.pixel-btn--ghost:hover {
+  border-color: var(--color-primary);
+  color: var(--color-text-primary);
+}
+
+/* ── Progress Node (Nó de Progressão) ── */
+.progress-node {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all var(--transition-mid);
+  border: 3px solid transparent;
+  position: relative;
+}
+
+.progress-node--locked {
+  background: #1a1035;
+  border-color: var(--color-text-muted);
+  cursor: not-allowed;
+  filter: grayscale(0.8);
+  opacity: 0.6;
+}
+
+.progress-node--available {
+  background: var(--color-bg-card);
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-glow-purple);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+.progress-node--available:hover {
+  transform: scale(1.15);
+  background: var(--color-primary);
+}
+
+.progress-node--in-progress {
+  background: var(--color-primary);
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-glow-purple), var(--shadow-glow-gold);
+}
+
+.progress-node--completed {
+  background: var(--color-success-dark);
+  border-color: var(--color-success);
+  box-shadow: var(--shadow-glow-green);
+}
+
+/* ── XP Bar ── */
+.xp-bar-container {
+  width: 100%;
+  height: 12px;
+  background: rgba(0,0,0,0.5);
+  border: 2px solid var(--color-primary);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.xp-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  transition: width 0.8s ease-out;
+  position: relative;
+}
+
+.xp-bar-fill::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  right: 4px;
+  height: 3px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 1px;
+}
+
+/* ── Badge de Raridade ── */
+.rarity-badge {
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  padding: 3px 8px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.rarity-badge--common   { background: #4a4a6a; color: #aaa; border: 1px solid #666; }
+.rarity-badge--rare     { background: #1a3a6a; color: #69f; border: 1px solid #48f; }
+.rarity-badge--epic     { background: #3a1a6a; color: #d6f; border: 1px solid #a4f; }
+.rarity-badge--legendary { background: #6a3a00; color: #fd0; border: 1px solid #fb0;
+                           box-shadow: 0 0 10px rgba(255,215,0,0.4); }
+
+/* ── Input de Resposta ── */
+.magic-input {
+  background: rgba(0,0,0,0.6);
+  border: 2px solid var(--color-primary);
+  border-radius: 2px;
+  color: var(--color-text-primary);
+  font-family: var(--font-pixel);
+  font-size: 16px;
+  padding: 12px 16px;
+  text-align: center;
+  width: 100%;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  outline: none;
+  letter-spacing: 2px;
+}
+
+.magic-input:focus {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-glow-gold);
+}
+
+.magic-input--correct {
+  border-color: var(--color-success);
+  box-shadow: var(--shadow-glow-green);
+}
+
+.magic-input--wrong {
+  border-color: var(--color-danger);
+  box-shadow: var(--shadow-glow-red);
+  animation: shake 0.5s ease-in-out;
+}
+
+/* ── Loading Spinner ── */
+.magic-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid rgba(123,47,190,0.3);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.8s steps(8) infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
